@@ -4,7 +4,10 @@ const listaTweets = document.getElementById('lista-tweets');
 eventListeners();
 
 function eventListeners() {
+    //Enviar formulario
     document.querySelector('#formulario').addEventListener('submit', agregarTweet);
+    //Borrar tweets
+    listaTweets.addEventListener('click', borrarTweet);
 }
 
 
@@ -25,4 +28,12 @@ function agregarTweet(e) {
     li.appendChild(botonBorrar);
     //Añade el Tweet a la lista
     listaTweets.appendChild(li);
+}
+
+function borrarTweet (e) {
+    e.preventDefault();
+    if (e.target.className === 'borrar-tweet') {
+        e.target.parentElement.remove();
+        alert('Tweet eliminado');
+    }
 }
